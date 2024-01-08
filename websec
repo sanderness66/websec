@@ -604,7 +604,7 @@ sub MailDocument() {
 
         $ua = new LWP::UserAgent;
         my $resp = $ua->request($req);
-        die "Error mailing document: ".$resp->message()."\n" if $resp->is_error;
+        warn "Error mailing document: ".$resp->message()."\n" if $resp->is_error;
     }
 
     $/ = $tmpstr;
