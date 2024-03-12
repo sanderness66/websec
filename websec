@@ -1,4 +1,4 @@
-#!/usr/bin/perl -w
+#!/usr/bin/perl -d:Trace
 
 #################################################################################
 # 
@@ -291,7 +291,7 @@ sub HandleSite() {
     $page_previous       = "$pagebase.html";
     $page_archive        = "$pagebase.old.html";
     $page_highlight      = "$pagebase.hl.html";
-    (undef, $outgoing)     = tempfile( SUFFIX => '.html' );
+    (undef, $outgoing)     = tempfile(UNLINK=>1, SUFFIX => '.html' );
     $page_previousExists = 1;
     open( FILE, $page_previous ) or $page_previousExists = 0;
     # get modification time
